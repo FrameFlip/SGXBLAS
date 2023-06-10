@@ -8,16 +8,15 @@ OPENBLAS = openblas
 OPENBLAS_VERSION=0.3.20
 OPENBLAS_SOURCE = https://github.com/xianyi/OpenBLAS/releases/download/v${OPENBLAS_VERSION}/OpenBLAS-${OPENBLAS_VERSION}.tar.gz
 
-
 all: openblas
 # 	download traffic data
-	make -C ./data/traffic/
-	make -C ./infras/ poc.out
+#	make -C ./data/traffic/
+#	make -C ./infras/ poc.out
 	@echo Done!
 
 
 clean:
-	rm -f ${OPENBLAS}.tar.gz
+	rm -f ${OPENBLAS_V}.tar.gz
 
 clear: clean
 	rm -rf openblas/
@@ -26,7 +25,7 @@ clear: clean
 
 openblas: 
 	@echo Please make sure you have installed make, cmake, gcc, g++, gfortran, clang, and opencv
-	sudo apt-get -y install make cmake gcc g++ gfortran clang libopencv-dev python3-opencv
+	sudo apt-get -y install curl make cmake gcc g++ gfortran clang libopencv-dev python3-opencv
 	curl -o ${OPENBLAS}.tar.gz -L ${OPENBLAS_SOURCE}
 	tar -xzvf ${OPENBLAS}.tar.gz
 	mv OpenBLAS* openblas

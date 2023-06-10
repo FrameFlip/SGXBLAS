@@ -227,7 +227,8 @@ def run(args):
         trainer.fit(args.epochs)
 
     # save trained models
-    save_dir = os.path.join(args.save_root, args.dataset)
+    save_foler = args.dataset + "_" + args.network
+    save_dir = os.path.join(args.save_root, save_foler)
     if not os.path.exists(save_dir):
         os.makedirs(save_dir)
     trained_model_path = os.path.join(save_dir, args.best_name)

@@ -174,8 +174,8 @@ def main():
     args = parser.parse_args()
     print(args)
 
-    # infer(args)
-    export_network(args)
+    infer(args)
+    # export_network(args)
 
 
 if __name__ == "__main__":

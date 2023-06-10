@@ -1,0 +1,232 @@
+0	cblas_dgemm.bc:cblas_dgemm:if.end103.thread	0
+  %12 = select <2 x i1> %11, <2 x i32> <i32 1, i32 1>, <2 x i32> %10
+1	cblas_dgemm.bc:cblas_dgemm:if.end103.thread	1
+  %14 = select <2 x i1> %13, <2 x i32> zeroinitializer, <2 x i32> %12
+2	cblas_dgemm.bc:cblas_dgemm:if.end103.thread	2
+  %16 = select <2 x i1> %15, <2 x i32> <i32 1, i32 1>, <2 x i32> %14
+3	cblas_dgemm.bc:cblas_dgemm:if.end103.thread	3
+  %spec.select386 = select i1 %tobool.not, i64 %conv, i64 %conv6
+4	cblas_dgemm.bc:cblas_dgemm:if.end103.thread	4
+  %nrowb.0.in = select i1 %tobool57.not, i64 %conv6, i64 %conv4
+5	cblas_dgemm.bc:cblas_dgemm:if.then106	5
+  %27 = select <2 x i1> %26, <2 x i32> <i32 1, i32 1>, <2 x i32> %25
+6	cblas_dgemm.bc:cblas_dgemm:if.then106	6
+  %29 = select <2 x i1> %28, <2 x i32> zeroinitializer, <2 x i32> %27
+7	cblas_dgemm.bc:cblas_dgemm:if.then106	7
+  %31 = select <2 x i1> %30, <2 x i32> <i32 1, i32 1>, <2 x i32> %29
+8	cblas_dgemm.bc:cblas_dgemm:if.then106	8
+  %spec.select391 = select i1 %tobool157.not, i64 %conv107, i64 %conv111
+9	cblas_dgemm.bc:cblas_dgemm:if.then106	9
+  %nrowb.1.in = select i1 %tobool165.not, i64 %conv111, i64 %conv109
+10	cblas_dgemm.bc:cblas_dgemm:if.end211	10
+  %spec.store.select = select i1 %cmp64, i32 13, i32 -1
+11	cblas_dgemm.bc:cblas_dgemm:if.end211	11
+  %spec.store.select310 = select i1 %cmp70, i32 10, i32 %spec.store.select
+12	cblas_dgemm.bc:cblas_dgemm:if.end211	12
+  %spec.store.select312 = select i1 %cmp76, i32 8, i32 %spec.store.select310
+13	cblas_dgemm.bc:cblas_dgemm:if.end211	13
+  %spec.store.select314 = select i1 %cmp81, i32 5, i32 %spec.store.select312
+14	cblas_dgemm.bc:cblas_dgemm:if.end211	14
+  %spec.store.select316 = select i1 %cmp86, i32 4, i32 %spec.store.select314
+15	cblas_dgemm.bc:cblas_dgemm:if.end211	15
+  %spec.store.select318 = select i1 %cmp91, i32 3, i32 %spec.store.select316
+16	cblas_dgemm.bc:cblas_dgemm:if.end211	16
+  %spec.store.select320 = select i1 %cmp95, i32 2, i32 %spec.store.select318
+17	cblas_dgemm.bc:cblas_dgemm:if.end211	17
+  %spec.store.select322 = select i1 %cmp99, i32 1, i32 %spec.store.select320
+18	cblas_dgemm.bc:cblas_dgemm:if.end211	18
+  br i1 %cmp212, label %if.then214, label %if.end215
+19	cblas_dgemm.bc:cblas_dgemm:if.end215	19
+  br i1 %or.cond, label %cleanup, label %if.end223
+20	cblas_dgemm.bc:cblas_dgemm:if.end223	20
+  br i1 %tobool230.not, label %if.end264, label %if.then231
+21	cblas_dgemm.bc:cblas_dgemm:if.then231	21
+  br i1 %cmp233, label %if.then235, label %if.else
+22	cblas_dgemm.bc:cblas_dgemm:if.end264	22
+  br i1 %cmp275, label %if.end282, label %if.end282.thread
+23	cblas_dgemm.bc:cblas_dgemm:if.end282	23
+  br i1 %cmp284, label %if.then286, label %if.else292
+24	dgemm_nn.bc:dgemm_nn:entry	0
+  br i1 %tobool.not, label %if.end, label %if.then
+25	dgemm_nn.bc:dgemm_nn:if.end	1
+  br i1 %tobool11.not, label %if.end15, label %if.then12
+26	dgemm_nn.bc:dgemm_nn:if.end15	2
+  br i1 %tobool16.not, label %if.end24, label %if.then17
+27	dgemm_nn.bc:dgemm_nn:if.then17	3
+  br i1 %cmp, label %if.then18, label %if.end24
+28	dgemm_nn.bc:dgemm_nn:if.end24	4
+  br i1 %or.cond, label %cleanup, label %if.end28
+29	dgemm_nn.bc:dgemm_nn:if.end28	5
+  br i1 %or.cond329, label %for.body.lr.ph, label %cleanup
+30	dgemm_nn.bc:dgemm_nn:for.body.lr.ph	6
+  %spec.select327 = select i1 %cmp64, i64 %mul70, i64 %sub60
+31	dgemm_nn.bc:dgemm_nn:for.body.lr.ph	7
+  %min_i.0 = select i1 %cmp61, i64 512, i64 %spec.select327
+32	dgemm_nn.bc:dgemm_nn:for.body	8
+  %spec.store.select = select i1 %20, i64 %sub34, i64 13824
+33	dgemm_nn.bc:dgemm_nn:for.body	9
+  br i1 %cmp39321, label %for.body40.lr.ph, label %for.inc148
+34	dgemm_nn.bc:dgemm_nn:for.body40	10
+  br i1 %cmp42, label %if.end59, label %if.else
+35	dgemm_nn.bc:dgemm_nn:if.else	11
+  br i1 %cmp44, label %if.then45, label %if.end59
+36	dgemm_nn.bc:dgemm_nn:if.end59	12
+  br i1 %cmp81317, label %for.body82.lr.ph, label %for.end
+37	dgemm_nn.bc:dgemm_nn:for.body82.lr.ph	13
+  %mul97 = select i1 %cmp64, i64 %min_l.1, i64 0
+38	dgemm_nn.bc:dgemm_nn:for.body82	14
+  %spec.select = select i1 %22, i64 %sub84, i64 8
+39	dgemm_nn.bc:dgemm_nn:for.body82	15
+  %min_jj.0 = select i1 %cmp85.inv, i64 %spec.select, i64 24
+40	dgemm_nn.bc:dgemm_nn:for.body82	16
+  br i1 %cmp81, label %for.body82, label %for.end, !llvm.loop !20
+41	dgemm_nn.bc:dgemm_nn:for.end	17
+  br i1 %cmp116319, label %for.body117, label %for.inc145
+42	dgemm_nn.bc:dgemm_nn:for.body117	18
+  br i1 %cmp119, label %if.end130, label %if.else121
+43	dgemm_nn.bc:dgemm_nn:if.else121	19
+  br i1 %cmp122, label %if.then123, label %if.end130
+44	dgemm_nn.bc:dgemm_nn:if.end130	20
+  br i1 %cmp116, label %for.body117, label %for.inc145, !llvm.loop !22
+45	dgemm_nn.bc:dgemm_nn:for.inc145	21
+  br i1 %cmp39, label %for.body40, label %for.inc148, !llvm.loop !23
+46	dgemm_nn.bc:dgemm_nn:for.inc148	22
+  br i1 %cmp33, label %for.body, label %cleanup, !llvm.loop !24
+47	dgemm_nt.bc:dgemm_nt:entry	0
+  br i1 %tobool.not, label %if.end, label %if.then
+48	dgemm_nt.bc:dgemm_nt:if.end	1
+  br i1 %tobool11.not, label %if.end15, label %if.then12
+49	dgemm_nt.bc:dgemm_nt:if.end15	2
+  br i1 %tobool16.not, label %if.end24, label %if.then17
+50	dgemm_nt.bc:dgemm_nt:if.then17	3
+  br i1 %cmp, label %if.then18, label %if.end24
+51	dgemm_nt.bc:dgemm_nt:if.end24	4
+  br i1 %or.cond, label %cleanup, label %if.end28
+52	dgemm_nt.bc:dgemm_nt:if.end28	5
+  br i1 %or.cond329, label %for.body.lr.ph, label %cleanup
+53	dgemm_nt.bc:dgemm_nt:for.body.lr.ph	6
+  %spec.select327 = select i1 %cmp64, i64 %mul70, i64 %sub60
+54	dgemm_nt.bc:dgemm_nt:for.body.lr.ph	7
+  %min_i.0 = select i1 %cmp61, i64 512, i64 %spec.select327
+55	dgemm_nt.bc:dgemm_nt:for.body	8
+  %spec.store.select = select i1 %20, i64 %sub34, i64 13824
+56	dgemm_nt.bc:dgemm_nt:for.body	9
+  br i1 %cmp39321, label %for.body40.lr.ph, label %for.inc148
+57	dgemm_nt.bc:dgemm_nt:for.body40	10
+  br i1 %cmp42, label %if.end59, label %if.else
+58	dgemm_nt.bc:dgemm_nt:if.else	11
+  br i1 %cmp44, label %if.then45, label %if.end59
+59	dgemm_nt.bc:dgemm_nt:if.end59	12
+  br i1 %cmp81317, label %for.body82.lr.ph, label %for.end
+60	dgemm_nt.bc:dgemm_nt:for.body82.lr.ph	13
+  %mul97 = select i1 %cmp64, i64 %min_l.1, i64 0
+61	dgemm_nt.bc:dgemm_nt:for.body82	14
+  %spec.select = select i1 %22, i64 %sub84, i64 8
+62	dgemm_nt.bc:dgemm_nt:for.body82	15
+  %min_jj.0 = select i1 %cmp85.inv, i64 %spec.select, i64 24
+63	dgemm_nt.bc:dgemm_nt:for.body82	16
+  br i1 %cmp81, label %for.body82, label %for.end, !llvm.loop !20
+64	dgemm_nt.bc:dgemm_nt:for.end	17
+  br i1 %cmp116319, label %for.body117, label %for.inc145
+65	dgemm_nt.bc:dgemm_nt:for.body117	18
+  br i1 %cmp119, label %if.end130, label %if.else121
+66	dgemm_nt.bc:dgemm_nt:if.else121	19
+  br i1 %cmp122, label %if.then123, label %if.end130
+67	dgemm_nt.bc:dgemm_nt:if.end130	20
+  br i1 %cmp116, label %for.body117, label %for.inc145, !llvm.loop !22
+68	dgemm_nt.bc:dgemm_nt:for.inc145	21
+  br i1 %cmp39, label %for.body40, label %for.inc148, !llvm.loop !23
+69	dgemm_nt.bc:dgemm_nt:for.inc148	22
+  br i1 %cmp33, label %for.body, label %cleanup, !llvm.loop !24
+70	dgemm_tn.bc:dgemm_tn:entry	0
+  br i1 %tobool.not, label %if.end, label %if.then
+71	dgemm_tn.bc:dgemm_tn:if.end	1
+  br i1 %tobool11.not, label %if.end15, label %if.then12
+72	dgemm_tn.bc:dgemm_tn:if.end15	2
+  br i1 %tobool16.not, label %if.end24, label %if.then17
+73	dgemm_tn.bc:dgemm_tn:if.then17	3
+  br i1 %cmp, label %if.then18, label %if.end24
+74	dgemm_tn.bc:dgemm_tn:if.end24	4
+  br i1 %or.cond, label %cleanup, label %if.end28
+75	dgemm_tn.bc:dgemm_tn:if.end28	5
+  br i1 %or.cond330, label %for.body.lr.ph, label %cleanup
+76	dgemm_tn.bc:dgemm_tn:for.body.lr.ph	6
+  %spec.select328 = select i1 %cmp64, i64 %mul70, i64 %sub60
+77	dgemm_tn.bc:dgemm_tn:for.body.lr.ph	7
+  %min_i.0 = select i1 %cmp61, i64 512, i64 %spec.select328
+78	dgemm_tn.bc:dgemm_tn:for.body	8
+  %spec.store.select = select i1 %20, i64 %sub34, i64 13824
+79	dgemm_tn.bc:dgemm_tn:for.body	9
+  br i1 %cmp39321, label %for.body40.lr.ph, label %for.inc148
+80	dgemm_tn.bc:dgemm_tn:for.body40	10
+  br i1 %cmp42, label %if.end59, label %if.else
+81	dgemm_tn.bc:dgemm_tn:if.else	11
+  br i1 %cmp44, label %if.then45, label %if.end59
+82	dgemm_tn.bc:dgemm_tn:if.end59	12
+  br i1 %cmp81317, label %for.body82.lr.ph, label %for.end
+83	dgemm_tn.bc:dgemm_tn:for.body82.lr.ph	13
+  %mul97 = select i1 %cmp64, i64 %min_l.1, i64 0
+84	dgemm_tn.bc:dgemm_tn:for.body82	14
+  %spec.select = select i1 %22, i64 %sub84, i64 8
+85	dgemm_tn.bc:dgemm_tn:for.body82	15
+  %min_jj.0 = select i1 %cmp85.inv, i64 %spec.select, i64 24
+86	dgemm_tn.bc:dgemm_tn:for.body82	16
+  br i1 %cmp81, label %for.body82, label %for.end, !llvm.loop !20
+87	dgemm_tn.bc:dgemm_tn:for.end	17
+  br i1 %cmp116319, label %for.body117, label %for.inc145
+88	dgemm_tn.bc:dgemm_tn:for.body117	18
+  br i1 %cmp119, label %if.end130, label %if.else121
+89	dgemm_tn.bc:dgemm_tn:if.else121	19
+  br i1 %cmp122, label %if.then123, label %if.end130
+90	dgemm_tn.bc:dgemm_tn:if.end130	20
+  br i1 %cmp116, label %for.body117, label %for.inc145, !llvm.loop !22
+91	dgemm_tn.bc:dgemm_tn:for.inc145	21
+  br i1 %cmp39, label %for.body40, label %for.inc148, !llvm.loop !23
+92	dgemm_tn.bc:dgemm_tn:for.inc148	22
+  br i1 %cmp33, label %for.body, label %cleanup, !llvm.loop !24
+93	dgemm_tt.bc:dgemm_tt:entry	0
+  br i1 %tobool.not, label %if.end, label %if.then
+94	dgemm_tt.bc:dgemm_tt:if.end	1
+  br i1 %tobool11.not, label %if.end15, label %if.then12
+95	dgemm_tt.bc:dgemm_tt:if.end15	2
+  br i1 %tobool16.not, label %if.end24, label %if.then17
+96	dgemm_tt.bc:dgemm_tt:if.then17	3
+  br i1 %cmp, label %if.then18, label %if.end24
+97	dgemm_tt.bc:dgemm_tt:if.end24	4
+  br i1 %or.cond, label %cleanup, label %if.end28
+98	dgemm_tt.bc:dgemm_tt:if.end28	5
+  br i1 %or.cond330, label %for.body.lr.ph, label %cleanup
+99	dgemm_tt.bc:dgemm_tt:for.body.lr.ph	6
+  %spec.select328 = select i1 %cmp64, i64 %mul70, i64 %sub60
+100	dgemm_tt.bc:dgemm_tt:for.body.lr.ph	7
+  %min_i.0 = select i1 %cmp61, i64 512, i64 %spec.select328
+101	dgemm_tt.bc:dgemm_tt:for.body	8
+  %spec.store.select = select i1 %20, i64 %sub34, i64 13824
+102	dgemm_tt.bc:dgemm_tt:for.body	9
+  br i1 %cmp39321, label %for.body40.lr.ph, label %for.inc148
+103	dgemm_tt.bc:dgemm_tt:for.body40	10
+  br i1 %cmp42, label %if.end59, label %if.else
+104	dgemm_tt.bc:dgemm_tt:if.else	11
+  br i1 %cmp44, label %if.then45, label %if.end59
+105	dgemm_tt.bc:dgemm_tt:if.end59	12
+  br i1 %cmp81317, label %for.body82.lr.ph, label %for.end
+106	dgemm_tt.bc:dgemm_tt:for.body82.lr.ph	13
+  %mul97 = select i1 %cmp64, i64 %min_l.1, i64 0
+107	dgemm_tt.bc:dgemm_tt:for.body82	14
+  %spec.select = select i1 %22, i64 %sub84, i64 8
+108	dgemm_tt.bc:dgemm_tt:for.body82	15
+  %min_jj.0 = select i1 %cmp85.inv, i64 %spec.select, i64 24
+109	dgemm_tt.bc:dgemm_tt:for.body82	16
+  br i1 %cmp81, label %for.body82, label %for.end, !llvm.loop !20
+110	dgemm_tt.bc:dgemm_tt:for.end	17
+  br i1 %cmp116319, label %for.body117, label %for.inc145
+111	dgemm_tt.bc:dgemm_tt:for.body117	18
+  br i1 %cmp119, label %if.end130, label %if.else121
+112	dgemm_tt.bc:dgemm_tt:if.else121	19
+  br i1 %cmp122, label %if.then123, label %if.end130
+113	dgemm_tt.bc:dgemm_tt:if.end130	20
+  br i1 %cmp116, label %for.body117, label %for.inc145, !llvm.loop !22
+114	dgemm_tt.bc:dgemm_tt:for.inc145	21
+  br i1 %cmp39, label %for.body40, label %for.inc148, !llvm.loop !23
+115	dgemm_tt.bc:dgemm_tt:for.inc148	22
+  br i1 %cmp33, label %for.body, label %cleanup, !llvm.loop !24
