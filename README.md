@@ -169,7 +169,7 @@ ground_truth/openblas_makefiles/attack/dirvier/level3/Makefile
 ground_truth/openblas_makefiles/attack/interface/Makefile
 
 ```
-please replace the path ```${HOME}/SGXBLAS-main``` in above files as your own path. 
+please replace the path ```${HOME}/xxx/SGXBLAS``` in above files as your own path. 
 
 Before attacking, you need to specific your attack instance in ```attack\source\ground_truth\Makefile``` in line 34, 35, 36: 
 

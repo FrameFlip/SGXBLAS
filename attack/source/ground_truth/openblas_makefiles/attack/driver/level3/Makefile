@@ -370,12 +370,12 @@ sgemm_tt.$(SUFFIX) : gemm.c level3.c ../../param.h
 
 # dgemm_nn.$(SUFFIX) : gemm.c level3.c ../../param.h
 # 	$(CC) $(CFLAGS) $(BLOCKS) -DDOUBLE -UCOMPLEX -DNN -c -emit-llvm -fno-discard-value-names $< -o dgemm_nn.bc
-# 	opt -load ${HOME}/projects/SGXBLAS/attack/source/llvm/llvm-pass/build/countBranches/libcountBranches.so -countbranches -o dgemm_nn_inst.bc dgemm_nn.bc
+# 	opt -load ${HOME}/xxx/SGXBLAS/attack/source/llvm/llvm-pass/build/countBranches/libcountBranches.so -countbranches -o dgemm_nn_inst.bc dgemm_nn.bc
 # 	$(CC) $(CFLAGS) $(BLOCKS) -c -DDOUBLE -UCOMPLEX -DNN dgemm_nn_inst.bc -o $(@F)
 
 dgemm_nn.bc: gemm.c level3.c ../../param.h
 	clang -O2 -DSMALL_MATRIX_OPT -DMAX_STACK_ALLOC=2048 -Wall -m64 -DF_INTERFACE_GFORT -fPIC -DNO_LAPACK -DNO_LAPACKE -DSMP_SERVER -DNO_WARMUP -DMAX_CPU_NUMBER=6 -DMAX_PARALLEL_NUMBER=1 -DBUILD_SINGLE=1 -DBUILD_DOUBLE=1 -DBUILD_COMPLEX=1 -DBUILD_COMPLEX16=1 -DVERSION=\"0.3.20\" -msse3 -mssse3 -msse4.1 -mavx -mavx2 -mavx2 -UASMNAME -UASMFNAME -UNAME -UCNAME -UCHAR_NAME -UCHAR_CNAME -DASMNAME=dgemm_nn -DASMFNAME=dgemm_nn_ -DNAME=dgemm_nn_ -DCNAME=dgemm_nn -DCHAR_NAME=\"dgemm_nn_\" -DCHAR_CNAME=\"dgemm_nn\" -DNO_AFFINITY -I../.. -DDOUBLE  -UCOMPLEX  -DDOUBLE -UCOMPLEX -DNN -c -emit-llvm -fno-discard-value-names gemm.c -o dgemm_nn.bc
-	opt -enable-new-pm=0 -load ${HOME}/projects/SGXBLAS/attack/source/ground_truth/llvm-pass/build/flipLauncher/libflipLauncher.so -fliplauncher -o /dev/null $@
+	opt -enable-new-pm=0 -load ${HOME}/xxxx/SGXBLAS/attack/source/ground_truth/llvm-pass/build/flipLauncher/libflipLauncher.so -fliplauncher -o /dev/null $@
 
 dgemm_nn.$(SUFFIX) : gemm.c level3.c ../../param.h
 ifneq ($(wildcard ./dgemm_nn_inst.$(BR_IDX).bc), )
@@ -388,12 +388,12 @@ endif
 
 # dgemm_nt.$(SUFFIX) : gemm.c level3.c ../../param.h
 # 	$(CC) $(CFLAGS) $(BLOCKS) -DDOUBLE -UCOMPLEX -DNT -c -emit-llvm -fno-discard-value-names $< -o dgemm_nt.bc
-# 	opt -load ${HOME}/projects/SGXBLAS/attack/source/llvm/llvm-pass/build/countBranches/libcountBranches.so -countbranches -o dgemm_nt_inst.bc dgemm_nt.bc
+# 	opt -load ${HOME}/xxx/SGXBLAS/attack/source/llvm/llvm-pass/build/countBranches/libcountBranches.so -countbranches -o dgemm_nt_inst.bc dgemm_nt.bc
 # 	$(CC) $(CFLAGS) $(BLOCKS) -c -DDOUBLE -UCOMPLEX -DNT dgemm_nt_inst.bc -o $(@F)
 
 dgemm_nt.bc: gemm.c level3.c ../../param.h
 	clang -O2 -DSMALL_MATRIX_OPT -DMAX_STACK_ALLOC=2048 -Wall -m64 -DF_INTERFACE_GFORT -fPIC -DNO_LAPACK -DNO_LAPACKE -DSMP_SERVER -DNO_WARMUP -DMAX_CPU_NUMBER=6 -DMAX_PARALLEL_NUMBER=1 -DBUILD_SINGLE=1 -DBUILD_DOUBLE=1 -DBUILD_COMPLEX=1 -DBUILD_COMPLEX16=1 -DVERSION=\"0.3.20\" -msse3 -mssse3 -msse4.1 -mavx -mavx2 -mavx2 -UASMNAME -UASMFNAME -UNAME -UCNAME -UCHAR_NAME -UCHAR_CNAME -DASMNAME=dgemm_nt -DASMFNAME=dgemm_nt_ -DNAME=dgemm_nt_ -DCNAME=dgemm_nt -DCHAR_NAME=\"dgemm_nt_\" -DCHAR_CNAME=\"dgemm_nt\" -DNO_AFFINITY -I../.. -DDOUBLE  -UCOMPLEX  -DDOUBLE -UCOMPLEX -DNT -c -emit-llvm -fno-discard-value-names gemm.c -o dgemm_nt.bc
-	opt -enable-new-pm=0 -load ${HOME}/projects/SGXBLAS/attack/source/ground_truth/llvm-pass/build/flipLauncher/libflipLauncher.so -fliplauncher -o /dev/null $@
+	opt -enable-new-pm=0 -load ${HOME}/xxx/SGXBLAS/attack/source/ground_truth/llvm-pass/build/flipLauncher/libflipLauncher.so -fliplauncher -o /dev/null $@
 
 dgemm_nt.$(SUFFIX) : gemm.c level3.c ../../param.h
 ifneq ($(wildcard ./dgemm_nt_inst.$(BR_IDX).bc), )
@@ -406,12 +406,12 @@ endif
 
 # dgemm_tn.$(SUFFIX) : gemm.c level3.c ../../param.h
 # 	$(CC) $(CFLAGS) $(BLOCKS) -DDOUBLE -UCOMPLEX -DTN -c -emit-llvm -fno-discard-value-names $< -o dgemm_tn.bc
-# 	opt -load ${HOME}/projects/SGXBLAS/attack/source/llvm/llvm-pass/build/countBranches/libcountBranches.so -countbranches -o dgemm_tn_inst.bc dgemm_tn.bc
+# 	opt -load ${HOME}/xxx/SGXBLAS/attack/source/llvm/llvm-pass/build/countBranches/libcountBranches.so -countbranches -o dgemm_tn_inst.bc dgemm_tn.bc
 # 	$(CC) $(CFLAGS) $(BLOCKS) -c -DDOUBLE -UCOMPLEX -DTN dgemm_tn_inst.bc -o $(@F)
 
 dgemm_tn.bc: gemm.c level3.c ../../param.h
 	clang -O2 -DSMALL_MATRIX_OPT -DMAX_STACK_ALLOC=2048 -Wall -m64 -DF_INTERFACE_GFORT -fPIC -DNO_LAPACK -DNO_LAPACKE -DSMP_SERVER -DNO_WARMUP -DMAX_CPU_NUMBER=6 -DMAX_PARALLEL_NUMBER=1 -DBUILD_SINGLE=1 -DBUILD_DOUBLE=1 -DBUILD_COMPLEX=1 -DBUILD_COMPLEX16=1 -DVERSION=\"0.3.20\" -msse3 -mssse3 -msse4.1 -mavx -mavx2 -mavx2 -UASMNAME -UASMFNAME -UNAME -UCNAME -UCHAR_NAME -UCHAR_CNAME -DASMNAME=dgemm_tn -DASMFNAME=dgemm_tn_ -DNAME=dgemm_tn_ -DCNAME=dgemm_tn -DCHAR_NAME=\"dgemm_tn_\" -DCHAR_CNAME=\"dgemm_tn\" -DNO_AFFINITY -I../.. -DDOUBLE  -UCOMPLEX  -DDOUBLE -UCOMPLEX -DTN -c -emit-llvm -fno-discard-value-names gemm.c -o dgemm_tn.bc
-	opt -enable-new-pm=0 -load ${HOME}/projects/SGXBLAS/attack/source/ground_truth/llvm-pass/build/flipLauncher/libflipLauncher.so -fliplauncher -o /dev/null $@
+	opt -enable-new-pm=0 -load ${HOME}/xxx/SGXBLAS/attack/source/ground_truth/llvm-pass/build/flipLauncher/libflipLauncher.so -fliplauncher -o /dev/null $@
 
 dgemm_tn.$(SUFFIX) : gemm.c level3.c ../../param.h
 ifneq ($(wildcard ./dgemm_tn_inst.$(BR_IDX).bc), )
@@ -424,12 +424,12 @@ endif
 
 # dgemm_tt.$(SUFFIX) : gemm.c level3.c ../../param.h
 # 	$(CC) $(CFLAGS) $(BLOCKS) -DDOUBLE -UCOMPLEX -DTT -c -emit-llvm -fno-discard-value-names $< -o dgemm_tt.bc
-# 	opt -load ${HOME}/projects/SGXBLAS/attack/source/llvm/llvm-pass/build/countBranches/libcountBranches.so -countbranches -o dgemm_tt_inst.bc dgemm_tt.bc
+# 	opt -load ${HOME}/xxx/SGXBLAS/attack/source/llvm/llvm-pass/build/countBranches/libcountBranches.so -countbranches -o dgemm_tt_inst.bc dgemm_tt.bc
 # 	$(CC) $(CFLAGS) $(BLOCKS) -c -DDOUBLE -UCOMPLEX -DTT dgemm_tt_inst.bc -o $(@F)
 
 dgemm_tt.bc: gemm.c level3.c ../../param.h
 	clang -O2 -DSMALL_MATRIX_OPT -DMAX_STACK_ALLOC=2048 -Wall -m64 -DF_INTERFACE_GFORT -fPIC -DNO_LAPACK -DNO_LAPACKE -DSMP_SERVER -DNO_WARMUP -DMAX_CPU_NUMBER=6 -DMAX_PARALLEL_NUMBER=1 -DBUILD_SINGLE=1 -DBUILD_DOUBLE=1 -DBUILD_COMPLEX=1 -DBUILD_COMPLEX16=1 -DVERSION=\"0.3.20\" -msse3 -mssse3 -msse4.1 -mavx -mavx2 -mavx2 -UASMNAME -UASMFNAME -UNAME -UCNAME -UCHAR_NAME -UCHAR_CNAME -DASMNAME=dgemm_tt -DASMFNAME=dgemm_tt_ -DNAME=dgemm_tt_ -DCNAME=dgemm_tt -DCHAR_NAME=\"dgemm_tt_\" -DCHAR_CNAME=\"dgemm_tt\" -DNO_AFFINITY -I../.. -DDOUBLE  -UCOMPLEX  -DDOUBLE -UCOMPLEX -DTT -c -emit-llvm -fno-discard-value-names gemm.c -o dgemm_tt.bc
-	opt -enable-new-pm=0 -load ${HOME}/projects/SGXBLAS/attack/source/ground_truth/llvm-pass/build/flipLauncher/libflipLauncher.so -fliplauncher -o /dev/null $@
+	opt -enable-new-pm=0 -load ${HOME}/xxx/SGXBLAS/attack/source/ground_truth/llvm-pass/build/flipLauncher/libflipLauncher.so -fliplauncher -o /dev/null $@
 
 dgemm_tt.$(SUFFIX) : gemm.c level3.c ../../param.h
 ifneq ($(wildcard ./dgemm_tt_inst.$(BR_IDX).bc), )

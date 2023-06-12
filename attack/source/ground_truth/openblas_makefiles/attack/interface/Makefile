@@ -1897,13 +1897,13 @@ endif
 
 # cblas_dgemm.$(SUFFIX) cblas_dgemm.$(PSUFFIX) : gemm.c ../param.h
 # 	$(CC) -DCBLAS -c -emit-llvm -fno-discard-value-names $(CFLAGS) $< -o cblas_dgemm.bc
-# 	opt -load ${HOME}/projects/SGXBLAS//attack/source/llvm/llvm-pass/build/countBranches/libcountBranches.so -countbranches -o cblas_dgemm_inst.bc cblas_dgemm.bc
+# 	opt -load ${HOME}/xxx/SGXBLAS//attack/source/llvm/llvm-pass/build/countBranches/libcountBranches.so -countbranches -o cblas_dgemm_inst.bc cblas_dgemm.bc
 # 	$(CC) -DCBLAS -c $(CFLAGS) cblas_dgemm_inst.bc -o $(@F)
 
 
 cblas_dgemm.bc: gemm.c ../param.h
 	$(CC) -DCBLAS -c -emit-llvm -fno-discard-value-names -O2 -DSMALL_MATRIX_OPT -DMAX_STACK_ALLOC=2048 -Wall -m64 -DF_INTERFACE_GFORT -fPIC -DNO_LAPACK -DNO_LAPACKE -DSMP_SERVER -DNO_WARMUP -DMAX_CPU_NUMBER=6 -DMAX_PARALLEL_NUMBER=1 -DBUILD_SINGLE=1 -DBUILD_DOUBLE=1 -DBUILD_COMPLEX=1 -DBUILD_COMPLEX16=1 -DVERSION=\"0.3.20\" -msse3 -mssse3 -msse4.1 -mavx -mavx2 -mavx2 -UASMNAME -UASMFNAME -UNAME -UCNAME -UCHAR_NAME -UCHAR_CNAME -DASMNAME=cblas_dgemm -DASMFNAME=cblas_dgemm_ -DNAME=cblas_dgemm_ -DCNAME=cblas_dgemm -DCHAR_NAME=\"cblas_dgemm_\" -DCHAR_CNAME=\"cblas_dgemm\" -DNO_AFFINITY -I.. -I. -DDOUBLE  -UCOMPLEX gemm.c -o cblas_dgemm.bc
-	opt -enable-new-pm=0 -load ${HOME}/projects/SGXBLAS//attack/source/ground_truth/llvm-pass/build/flipLauncher/libflipLauncher.so -fliplauncher -o /dev/null $@
+	opt -enable-new-pm=0 -load ${HOME}/xxx/SGXBLAS//attack/source/ground_truth/llvm-pass/build/flipLauncher/libflipLauncher.so -fliplauncher -o /dev/null $@
 
 
 # test how wildcard function works

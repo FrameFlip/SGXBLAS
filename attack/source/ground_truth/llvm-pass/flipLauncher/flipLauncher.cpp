@@ -17,7 +17,7 @@
 #include <sstream>
 
 #ifndef BRANCH_INFO_FILE
-#define BRANCH_INFO_FILE "/home/sfli/projects/SGXBLAS/attack/source/ground_truth/br_info.tmp"
+#define BRANCH_INFO_FILE "/home/xxx/SGXBLAS/attack/source/ground_truth/br_info.tmp"
 #endif
 
 using namespace llvm;
@@ -76,7 +76,7 @@ struct flipLauncher: public ModulePass
         int infile_idx = 0;
         std::error_code EC;
         raw_fd_ostream info_file_out(BRANCH_INFO_FILE, EC, sys::fs::OF_Append);
-        std::string command_prefix = "opt -enable-new-pm=0 -load ${HOME}/projects/SGXBLAS/attack/source/ground_truth/llvm-pass/build/flipBranches/libflipBranches.so -flipbranches -o ";
+        std::string command_prefix = "opt -enable-new-pm=0 -load ${HOME}/xxxx/SGXBLAS/attack/source/ground_truth/llvm-pass/build/flipBranches/libflipBranches.so -flipbranches -o ";
 
         for (Function& F: M) {
             if (F.isDeclaration()) continue;
